@@ -13,3 +13,5 @@ __pycache__
 /htmlcov/
 /.tox/
 /coverage.xml
+
+/node_modules/
