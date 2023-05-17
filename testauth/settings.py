@@ -236,7 +236,7 @@ SITE_NAME = "testauth"
 DEBUG = False
 
 # Add any additional apps to this list.
-INSTALLED_APPS += ["eunicore"]
+INSTALLED_APPS += ["eunicore", "eunicore.phpbb3"]
 
 # Register an application at https://developers.eveonline.com for Authentication
 # & API Access and fill out these settings. Be sure to set the callback URL
@@ -269,3 +269,7 @@ LOGGING = False
 
 NOTIFICATIONS_REFRESH_TIME = 30
 NOTIFICATIONS_MAX_PER_USER = 50
+
+PHPBB3_URL = ""
+
+CELERY_ALWAYS_EAGER = True
