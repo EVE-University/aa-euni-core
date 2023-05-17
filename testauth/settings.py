@@ -34,28 +34,6 @@ PACKAGE = "eunicore"
 
 SECRET_KEY = "wow I'm a really bad default secret key"
 
-# Celery configuration
-BROKER_URL = "redis://localhost:6379/0"
-CELERYBEAT_SCHEDULER = "django_celery_beat.schedulers.DatabaseScheduler"
-CELERYBEAT_SCHEDULE = {
-    "esi_cleanup_callbackredirect": {
-        "task": "esi.tasks.cleanup_callbackredirect",
-        "schedule": crontab(minute=0, hour="*/4"),
-    },
-    "esi_cleanup_token": {
-        "task": "esi.tasks.cleanup_token",
-        "schedule": crontab(minute=0, hour=0),
-    },
-    "run_model_update": {
-        "task": "allianceauth.eveonline.tasks.run_model_update",
-        "schedule": crontab(minute=0, hour="*/6"),
-    },
-    "check_all_character_ownership": {
-        "task": "allianceauth.authentication.tasks.check_all_character_ownership",
-        "schedule": crontab(minute=0, hour="*/4"),
-    },
-}
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -157,7 +135,6 @@ CACHES = {
     }
 }
 
-DEBUG = True
 ALLOWED_HOSTS = ["*"]
 DATABASES = {
     "default": {
