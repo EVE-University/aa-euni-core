@@ -16,4 +16,9 @@ class EUniBackend(StateBackend):
         user.email = f"{user.id}@eveuniversity.org"
         user.save()
 
+        # Force night mode on so other plugins that adjust colors based on that flag use dark
+        # compatible colors.
+        user.profile.night_mode = True
+        user.profile.save()
+
         return user

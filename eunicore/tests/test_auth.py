@@ -56,6 +56,7 @@ class TestAuth(TestCase):
         user = EUniBackend().authenticate(token=t)
         self.assertNotEqual(user, self.reg_user)
         self.assertEqual(user.username, "Unregistered_Character")
-        self.assertEqual(user.is_active, True)
+        self.assertTrue(user.is_active)
         self.assertEqual(user.email, f"{user.id}@eveuniversity.org")
         self.assertEqual(user.profile.main_character, self.unregistered_character)
+        self.assertTrue(user.profile.night_mode)
