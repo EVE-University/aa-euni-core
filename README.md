@@ -152,3 +152,22 @@ template loader's dirs if it isn't already present.
 ### Templates
 The `eunicore/templates` directory can be used to override any template file used by the
 Alliance Auth application.
+
+### AA v4.x Theme
+
+Add `eunicore.theme.slate` to INSTALLED_APPS.
+
+Add the following to `local.py` as well if you only the Slate theme available.
+
+```python
+# Sets default theme to Slate.
+DEFAULT_THEME = "eunicore.theme.slate.auth_hooks.SlateThemeHook"
+
+# Legacy AAv3 user.profile.night_mode=1. This is the default set by the EUni Auth Backend.
+DEFAULT_THEME_DARK = "eunicore.theme.slate.auth_hooks.SlateThemeHook"
+
+# Remove the default BS5 themes
+INSTALLED_APPS.remove("allianceauth.theme.darkly")
+INSTALLED_APPS.remove("allianceauth.theme.flatly")
+INSTALLED_APPS.remove("allianceauth.theme.materia")
+```
